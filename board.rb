@@ -60,8 +60,4 @@ class Board
     puts render
   end
 
-  def deep_dup
-
-  end
-
 end
