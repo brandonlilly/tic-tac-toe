@@ -48,12 +48,14 @@ class Board
 
 
   def render
-    @board.transpose.map do |row|
+    str = "╔═══╦═══╦═══╗\n"
+    str += @board.transpose.map do |row|
       line = row.map do |cell|
-        cell || ' '
+        cell ? cell.to_s.downcase : ' '
       end
-      line.join(' | ')
-    end.join("\n---------\n")
+      '║ ' + line.join(' ║ ') + " ║\n"
+    end.join("╠═══╬═══╬═══╣\n")
+    str + "╚═══╩═══╩═══╝\n"
   end
 
   def display
